@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0EB5FBE41880D59100CDFC63"
+               BlueprintIdentifier = "0EBCDA7B1880E68A00599122"
                BuildableName = "controllers.app"
                BlueprintName = "controllers"
                ReferencedContainer = "container:controllers.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0EB5FC051880D59100CDFC63"
+               BlueprintIdentifier = "0EBCDA9C1880E68A00599122"
                BuildableName = "controllersTests.xctest"
                BlueprintName = "controllersTests"
                ReferencedContainer = "container:controllers.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0EB5FBE41880D59100CDFC63"
+            BlueprintIdentifier = "0EBCDA7B1880E68A00599122"
             BuildableName = "controllers.app"
             BlueprintName = "controllers"
             ReferencedContainer = "container:controllers.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0EB5FBE41880D59100CDFC63"
+            BlueprintIdentifier = "0EBCDA7B1880E68A00599122"
             BuildableName = "controllers.app"
             BlueprintName = "controllers"
             ReferencedContainer = "container:controllers.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0EB5FBE41880D59100CDFC63"
+            BlueprintIdentifier = "0EBCDA7B1880E68A00599122"
             BuildableName = "controllers.app"
             BlueprintName = "controllers"
             ReferencedContainer = "container:controllers.xcodeproj">

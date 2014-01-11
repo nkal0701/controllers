@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) UITextField * myTextField;
 @end
 
 @implementation ViewController
@@ -18,6 +18,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.myTextField = [[UITextField alloc]initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 50, 50)];
+    [self.myTextField setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:self.myTextField];
 }
 
 - (void)didReceiveMemoryWarning

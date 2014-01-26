@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface APAnnotation : NSObject
+@interface APAnnotation : NSObject  <MKAnnotation>
+
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic, readonly, copy) NSString *subtitle;
+
+- (id)initWithPosition:(CLLocationCoordinate2D)coords;
 
 @end

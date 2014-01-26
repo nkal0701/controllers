@@ -7,7 +7,17 @@
 //
 
 #import "APAnnotation.h"
+#import <MapKit/MapKit.h>
+
 
 @implementation APAnnotation
+
+- (id)initWithPosition:(CLLocationCoordinate2D)coords
+{
+    if (self == [super init]) {
+        self.coordinate = coords;
+    }
+    return self;
+}
 
 @end

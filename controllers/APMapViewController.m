@@ -20,8 +20,10 @@
     
     #define SPAN_VALUE 60.00f
 
-@interface APMapViewController ()
+@interface APMapViewController ()   <NSXMLParserDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) NSMutableArray *temp;
+@property CLLocationCoordinate2D points;
 
 @end
 
@@ -32,6 +34,10 @@
 {
     [super viewDidLoad];
 
+    self.mapView.delegate = self;
+    
+    [self xmlDocument];
+    
     // region
     MKCoordinateRegion region;
     // center
@@ -58,14 +64,16 @@
     ann.title = @"New York";
     ann.subtitle = @"Hello World";
     
-    // assign region to the map
-    [self.mapView setRegion:region animated:YES];
-    
-    //add annotation
-    [self.mapView addAnnotation:ann];
+//    // assign region to the map
+//    [self.mapView setRegion:region animated:YES];
+//    
+//    //add annotation
+//    [self.mapView addAnnotation:ann];
     
     
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,6 +111,91 @@
 -(NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
+}
+
+#pragma mark - xml document
+- (void)xmlDocument
+{
+    //xml document
+    // load XML and initialize parsing
+    NSString *path = [[NSBundle mainBundle] resourcePath];
+    NSString *xml = [path stringByAppendingPathComponent:@"ca.xml"];
+    NSURL *url = [NSURL fileURLWithPath:xml isDirectory:NO];
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+    parser.delegate = self;
+    BOOL success = [parser parse];
+    if (!success) {
+        NSLog(@"You need the XML file to get data");
+    }
+    //parse
+    //root element array
+    //point element array
+    //CCLocationCoordinate2D - size array
+    //MKPolygon
+    //MKPolygonView
+}
+
+//parse
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName
+    attributes:(NSDictionary *)attributeDict {
+    
+    // create array to store points
+    if ([elementName isEqualToString:@"ca"]) {
+        self.temp = [[NSMutableArray alloc]init];
+        
+        // store point information in NSDictionary
+    } else if ([elementName isEqualToString:@"point"]) {
+        NSDictionary *point = [[NSDictionary alloc] initWithObjectsAndKeys:[attributeDict objectForKey:@"lat"], @"latitude", [attributeDict objectForKey:@"lng"], @"longitude", nil];
+        [self.temp addObject:point];
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if ([elementName isEqualToString:@"ca"]) {
+        // create CLLocationCoordinate2D
+        CLLocationCoordinate2D *coordinates = malloc(sizeof(CLLocationCoordinate2D) * [self.temp count]);
+        
+        // store points in coordinates object
+        for (int i = 0; i < [self.temp count]; i++) {
+            NSDictionary *dict = [self.temp objectAtIndex:i];
+            double lat = [[dict valueForKey:@"latitude"] doubleValue];
+            double lon = [[dict valueForKey:@"longitude"] doubleValue];
+            CLLocationCoordinate2D point;
+            point.latitude = lat;
+            point.longitude = lon;
+            coordinates[i] = point;
+            
+            APAnnotation *ann = [[APAnnotation alloc]initWithPosition:point];
+            [self.mapView addAnnotation:ann];
+        }
+        
+        // create polygon from coordinates
+        MKPolygon *polygon = [MKPolygon polygonWithCoordinates:coordinates count:[self.temp count]];
+        [self.mapView addOverlay:polygon];
+        
+        // scale map to display polygon
+        [self.mapView setVisibleMapRect:polygon.boundingMapRect];
+        
+        free(coordinates);
+    }
+}
+
+- (void) handleSingleTap
+{
+    
+}
+
+#pragma mark - overlay renderer
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+	MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc] initWithOverlay:overlay];
+	polygonRenderer.strokeColor = [[UIColor cyanColor] colorWithAlphaComponent:0.5];
+	polygonRenderer.fillColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+    polygonRenderer.lineWidth = 1;
+    
+	return polygonRenderer;
 }
 
 @end

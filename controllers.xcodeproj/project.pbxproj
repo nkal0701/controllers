@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E44B1781898A68000487451 /* ca.xml in Resources */ = {isa = PBXBuildFile; fileRef = 0E44B1761898A68000487451 /* ca.xml */; };
+		0E44B1791898A68000487451 /* us.xml in Resources */ = {isa = PBXBuildFile; fileRef = 0E44B1771898A68000487451 /* us.xml */; };
 		0E82D2EE1895274200B822B6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E82D2ED1895274200B822B6 /* MapKit.framework */; };
 		0E82D2F118952BB800B822B6 /* APAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E82D2F018952BB800B822B6 /* APAnnotation.m */; };
 		0E82D2F71895871E00B822B6 /* APMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E82D2F61895871E00B822B6 /* APMapView.m */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E44B1761898A68000487451 /* ca.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ca.xml; sourceTree = "<group>"; };
+		0E44B1771898A68000487451 /* us.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = us.xml; sourceTree = "<group>"; };
 		0E82D2ED1895274200B822B6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0E82D2EF18952BB800B822B6 /* APAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAnnotation.h; sourceTree = "<group>"; };
 		0E82D2F018952BB800B822B6 /* APAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAnnotation.m; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		0EBCDA861880E68A00599122 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0E44B1761898A68000487451 /* ca.xml */,
+				0E44B1771898A68000487451 /* us.xml */,
 				0EBCDA871880E68A00599122 /* controllers-Info.plist */,
 				0EBCDA881880E68A00599122 /* InfoPlist.strings */,
 				0EBCDA8B1880E68A00599122 /* main.m */,
@@ -242,7 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E44B1791898A68000487451 /* us.xml in Resources */,
 				0EBCDA981880E68A00599122 /* Images.xcassets in Resources */,
+				0E44B1781898A68000487451 /* ca.xml in Resources */,
 				0EBCDA8A1880E68A00599122 /* InfoPlist.strings in Resources */,
 				0EBCDA931880E68A00599122 /* Main.storyboard in Resources */,
 			);

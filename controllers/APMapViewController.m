@@ -31,25 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
-    
-//    UINavigationController *mapNavigationController = [[UINavigationController alloc]initWithRootViewController:self.mapViewController];
-//    
-//    [mapNavigationController pushViewController:self.mapViewController animated:YES];
-    
-    
-//    APMapViewController_portrait *vc = [[APMapViewController_portrait alloc]initWithNibName:@"APMapViewController-portrait" bundle:nil];
-//    
-//    self.portraitVC = vc;
-//    self.portraitView = vc.view;
-//    [self.viewController addChildViewController:vc];
-//    [self.rootView addSubview:vc.view];
-    
-    
-    //[[NSBundle mainBundle] loadNibNamed:@"APMapViewController-portrait" owner:self options:nil];
-    
-    
+
     // region
     MKCoordinateRegion region;
     // center
@@ -76,17 +58,13 @@
     ann.title = @"New York";
     ann.subtitle = @"Hello World";
     
-//    // assign region to the map
-//    [self.mapView setRegion:region animated:YES];
-//    
-//    //add annotation
-//    [self.mapView addAnnotation:ann];
+    // assign region to the map
+    [self.mapView setRegion:region animated:YES];
     
-//    MKMapCamera* camera = [MKMapCamera
-//                           cameraLookingAtCenterCoordinate:(CLLocationCoordinate2D)region.center
-//                           fromEyeCoordinate:(CLLocationCoordinate2D)location
-//                           eyeAltitude:(CLLocationDistance)SPAN_VALUE];
-//    [self.mapView setCamera:camera animated:NO];
+    //add annotation
+    [self.mapView addAnnotation:ann];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

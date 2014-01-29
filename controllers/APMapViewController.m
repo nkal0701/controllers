@@ -27,9 +27,28 @@
 
 @implementation APMapViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
+//    UINavigationController *mapNavigationController = [[UINavigationController alloc]initWithRootViewController:self.mapViewController];
+//    
+//    [mapNavigationController pushViewController:self.mapViewController animated:YES];
+    
+    
+//    APMapViewController_portrait *vc = [[APMapViewController_portrait alloc]initWithNibName:@"APMapViewController-portrait" bundle:nil];
+//    
+//    self.portraitVC = vc;
+//    self.portraitView = vc.view;
+//    [self.viewController addChildViewController:vc];
+//    [self.rootView addSubview:vc.view];
+    
+    
+    //[[NSBundle mainBundle] loadNibNamed:@"APMapViewController-portrait" owner:self options:nil];
+    
     
     // region
     MKCoordinateRegion region;
@@ -57,11 +76,11 @@
     ann.title = @"New York";
     ann.subtitle = @"Hello World";
     
-    // assign region to the map
-    [self.mapView setRegion:region animated:YES];
-    
-    //add annotation
-    [self.mapView addAnnotation:ann];
+//    // assign region to the map
+//    [self.mapView setRegion:region animated:YES];
+//    
+//    //add annotation
+//    [self.mapView addAnnotation:ann];
     
 //    MKMapCamera* camera = [MKMapCamera
 //                           cameraLookingAtCenterCoordinate:(CLLocationCoordinate2D)region.center
@@ -75,20 +94,37 @@
     [super didReceiveMemoryWarning];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+#pragma mark - device orientation method
+- (void)updateLayoutForNewOrientation:(UIInterfaceOrientation)orientation
 {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    switch (self.interfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+            [self.mapView setFrame:CGRectMake(0, 0, 320, 568)];
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            [self.mapView setFrame:CGRectMake(0, 0, 320, 568)];
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            [self.mapView setFrame:CGRectMake(0, 0, 568, 320)];
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            [self.mapView setFrame:CGRectMake(0, 0, 568, 320)];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self updateLayoutForNewOrientation:self.interfaceOrientation];
 }
 
 -(NSUInteger)supportedInterfaceOrientations
 {
-    
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationLandscapeRight;
+    return UIInterfaceOrientationMaskAll;
 }
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E82D2EE1895274200B822B6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E82D2ED1895274200B822B6 /* MapKit.framework */; };
 		0E82D2F118952BB800B822B6 /* APAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E82D2F018952BB800B822B6 /* APAnnotation.m */; };
+		0E82D2F71895871E00B822B6 /* APMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E82D2F61895871E00B822B6 /* APMapView.m */; };
 		0EBCDA801880E68A00599122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBCDA7F1880E68A00599122 /* Foundation.framework */; };
 		0EBCDA821880E68A00599122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBCDA811880E68A00599122 /* CoreGraphics.framework */; };
 		0EBCDA841880E68A00599122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBCDA831880E68A00599122 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 		0E82D2ED1895274200B822B6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0E82D2EF18952BB800B822B6 /* APAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAnnotation.h; sourceTree = "<group>"; };
 		0E82D2F018952BB800B822B6 /* APAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAnnotation.m; sourceTree = "<group>"; };
+		0E82D2F51895871E00B822B6 /* APMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMapView.h; sourceTree = "<group>"; };
+		0E82D2F61895871E00B822B6 /* APMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMapView.m; sourceTree = "<group>"; };
 		0EBCDA7C1880E68A00599122 /* controllers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = controllers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EBCDA7F1880E68A00599122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0EBCDA811880E68A00599122 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +127,8 @@
 				0EBCDA911880E68A00599122 /* Main.storyboard */,
 				0EBCDA941880E68A00599122 /* APMapViewController.h */,
 				0EBCDA951880E68A00599122 /* APMapViewController.m */,
+				0E82D2F51895871E00B822B6 /* APMapView.h */,
+				0E82D2F61895871E00B822B6 /* APMapView.m */,
 				0E82D2EF18952BB800B822B6 /* APAnnotation.h */,
 				0E82D2F018952BB800B822B6 /* APAnnotation.m */,
 				0EBCDA971880E68A00599122 /* Images.xcassets */,
@@ -262,6 +267,7 @@
 				0E82D2F118952BB800B822B6 /* APAnnotation.m in Sources */,
 				0EBCDA901880E68A00599122 /* AppDelegate.m in Sources */,
 				0EBCDA8C1880E68A00599122 /* main.m in Sources */,
+				0E82D2F71895871E00B822B6 /* APMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
